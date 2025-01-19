@@ -6,26 +6,24 @@ const lowercase = document.querySelectorAll('.letter-bank .lo')
 const signedBy = document.querySelector('.signed-by')
 const modal = document.querySelector('.modal')
 
-// Cuma mengatur showing/hiding modal saat keydown
 name.addEventListener("keydown", (event) => {
   setTimeout(function() {
     if (!name.value) {
-      modal.classList.remove('active')
+      modal.classList.remove('active');
+      sign.innerHTML = '';
     } else {
-      modal.classList.add('active')
+      modal.classList.add('active');
     }
   }, 50);
-
-  // Memicu tombol "Sign" saat menekan key "Enter"
+  
   if (event.key === "Enter") {
-    event.preventDefault(); // Mencegah pengiriman form/default action
-    signButton.click(); // Secara programatik memicu tombol tanda tangan
+    event.preventDefault();
+    signButton.click();
   }
 })
 
-// Handle signature on sign button click
 signButton.addEventListener("click", () => {
-  sign.innerHTML = '' // Ngehapus tanda tangan yang ada
+  sign.innerHTML = ''
   const value = name.value
   const letters = value.split('')
   letters.forEach((item, i) => {
